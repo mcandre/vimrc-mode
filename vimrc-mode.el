@@ -1,4 +1,4 @@
-;;; vimrc-mode.el --- Enables syntax highlighting for .vimrc/_vimrc files.
+;;; vimrc-mode.el --- Enables syntax highlighting for .vimrc/_vimrc files
 
 ;; 2013 Andrew Pennebaker
 ;; URL: https://github.com/mcandre/vimrc-mode
