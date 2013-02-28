@@ -2,7 +2,7 @@
 
 # ABOUT
 
-Enables syntax highlighting for .vimrc/_vimrc files
+Enables syntax highlighting for `.vimrc`/`_vimrc` files
 
 # INSTALL
 
