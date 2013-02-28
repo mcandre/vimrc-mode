@@ -1,8 +1,8 @@
-;;; vimrc-mode.el --- Enables syntax highlighting for .vimrc/_vimrc files
+;;; vimrc-mode.el --- Major mode for vimrc files
 
 ;; 2013 Andrew Pennebaker
 ;; URL: https://github.com/mcandre/vimrc-mode
-;; Version: 0.3.0
+;; Version: 0.3.1
 ;; Package-Requires: ()
 
 ;; Copyright (C) 2011 Alpha Tan
@@ -34,8 +34,10 @@
 
 ;;; Commentary:
 
-;; (load "vimrc-mode")
-;; (add-to-list 'auto-mode-alist '(".vim\\(rc\\)?$" . vimrc-mode))
+;; Add the following to ~/.emacs:
+;;
+;;     (require 'vimrc-mode)
+;;     (add-to-list 'auto-mode-alist '(".vim\\(rc\\)?$" . vimrc-mode))
 ;;
 
 ;;; Code:

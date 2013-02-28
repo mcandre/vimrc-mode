@@ -1,8 +1,4 @@
-# vimrc-mode
-
-# ABOUT
-
-Enables syntax highlighting for `.vimrc`/`_vimrc` files
+# vimrc-mode - Major mode for vimrc files
 
 # INSTALL
 
@@ -10,5 +6,5 @@ Enables syntax highlighting for `.vimrc`/`_vimrc` files
 
 Then add to `~/.emacs`:
 
-    (load "vimrc-mode")
+    (require 'vimrc-mode)
     (add-to-list 'auto-mode-alist '(".vim\\(rc\\)?$" . vimrc-mode))
