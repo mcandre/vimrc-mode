@@ -1,5 +1,9 @@
-# vimrc-mode - Enables syntax highlighting for .vimrc/_vimrc files
+# vimrc-mode
+
+# ABOUT
+
+Enables syntax highlighting for .vimrc/_vimrc files
 
 # INSTALL
 
-M-x package-install vimrc-mode
+    M-x package-install vimrc-mode
