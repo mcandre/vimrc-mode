@@ -1999,6 +1999,10 @@
      ))
  "Default expressions to highlight in Vimrc mode.")
 
+;;;###autoload (add-to-list 'auto-mode-alist '("\\.vim\\'" . vimrc-mode))
+;;;###autoload (add-to-list 'auto-mode-alist '("[._]?g?vimrc\\'" . vimrc-mode))
+;;;###autoload (add-to-list 'auto-mode-alist '("\\.exrc\\'" . vimrc-mode))
+
 ;;;###autoload
 (define-derived-mode vimrc-mode fundamental-mode "Vimrc"
   "Major mode for editing `vimrc', `xxx.vim' and `.exrc' configuration files."
