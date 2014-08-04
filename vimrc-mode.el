@@ -50,31 +50,30 @@
   :group 'data)
 
 ;; Regexps
-(defconst vimrc-font-lock-keywords
-  (eval-when-compile
-    (list
+(defvar vimrc-font-lock-keywords
+  `(
      ;; Comment start:
-     '("\\(^\\|[\t ]\\)\\(\".*\\)$"
+     ("\\(^\\|[\t ]\\)\\(\".*\\)$"
        (2 font-lock-comment-face)) ;; Comment end;
 
      ;; String start:
-     '("\\(\"[^\n\r\"]*\"\\)\\|\\('[^\n\r]*'\\)"
+     ("\\(\"[^\n\r\"]*\"\\)\\|\\('[^\n\r]*'\\)"
        (0 font-lock-string-face)) ;; String end;
 
      ;; Function-name start:
-     '("^[ \t]*\\(fun[ction]*[!]\\)[ \t]*\\([a-z:A-Z0-9_]+\\)?"
+     ("^[ \t]*\\(fun[ction]*[!]\\)[ \t]*\\([a-z:A-Z0-9_]+\\)?"
        (1 font-lock-keyword-face)
        (2 font-lock-function-name-face nil t)) ;; Function-name end;
-     '("\\(\\([a-zA-Z]*:\\)?[a-zA-Z]*\\)("
+     ("\\(\\([a-zA-Z]*:\\)?[a-zA-Z]*\\)("
        (1 font-lock-function-name-face nil t)) ;; Function-name end;
 
      ;; Variables start:
-     '("\\(\\([avg]:\\)\\|\\([&$]\\)\\)\\([a-zA-Z][a-zA-Z0-9_]*\\)"
+     ("\\(\\([avg]:\\)\\|\\([&$]\\)\\)\\([a-zA-Z][a-zA-Z0-9_]*\\)"
        (0 font-lock-variable-name-face)
        ) ;; Variables end;
 
      ;; Variables.
-     (list
+     (,
       (concat "[^_]\\<\\("
                              "acd"
                        "\\|" "ai"
@@ -1298,7 +1297,8 @@
       1 font-lock-variable-name-face) ;; Variables end;
 
 
-     ;; Keywords start: 
+     ;; Keywords start:
+     (,
      (concat "\\(^\\|[^_]\\)\\<\\("
                           "y[ank]*"
                     "\\|" "xnoreme"
@@ -1720,10 +1720,11 @@
                     "\\|" "abo[veleft]*"
                     "\\|" "abc[lear]*"
              "\\)\\>\\([^_]\\|$\\)"
+             )
       ) ;; Keywords end; 
 
      ;; Builtins start:
-     (list
+     (,
       (concat "\\(^\\|[^_]\\)\\<\\("
                               "writefile"
                         "\\|" "winwidth"
@@ -1974,11 +1975,11 @@
                         "\\|" "acos"
                         "\\|" "abs"
              "\\)\\>\\([^_]\\|$\\)")
-      1 font-lock-builtin-face) ;; Builtins end;
+      2 font-lock-builtin-face) ;; Builtins end;
 
      ;;
      ;; Operators start:
-     (list (concat "\\("
+     (,(concat "\\("
                        ;; word char
                              "\\(\\<isnot\\>\\)"
                        "\\|" "\\(\\<is\\>\\)"
@@ -1996,7 +1997,7 @@
                    "\\)"
                    )
            1 font-lock-constant-face) ;; Operators end;
-     ))
+     )
  "Default expressions to highlight in Vimrc mode.")
 
 ;;;###autoload (add-to-list 'auto-mode-alist '("\\.vim\\'" . vimrc-mode))
