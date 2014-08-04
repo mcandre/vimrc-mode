@@ -2004,8 +2004,11 @@
 ;;;###autoload (add-to-list 'auto-mode-alist '("[._]?g?vimrc\\'" . vimrc-mode))
 ;;;###autoload (add-to-list 'auto-mode-alist '("\\.exrc\\'" . vimrc-mode))
 
+(defalias 'vimrc--parent-mode
+  (if (fboundp 'prog-mode) #'prog-mode #'fundamental-mode))
+
 ;;;###autoload
-(define-derived-mode vimrc-mode fundamental-mode "Vimrc"
+(define-derived-mode vimrc-mode vimrc--parent-mode "Vimrc"
   "Major mode for editing `vimrc', `xxx.vim' and `.exrc' configuration files."
   (setq font-lock-defaults '(vimrc-font-lock-keywords))
   (set (make-local-variable 'comment-start) "\"")
