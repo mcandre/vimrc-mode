@@ -1,21 +1,14 @@
 ;;; vimrc-mode.el --- Major mode for vimrc files
 
-;; 2013 Andrew Pennebaker
+;; Copyright (C) 2013 Andrew Pennebaker
+;; Copyright (C) 2011 Alpha Tan
+
+;; Authors: Andrew Pennebaker
+;;          Alpha Tan <alphatan.zh@gmail.com>
 ;; URL: https://github.com/mcandre/vimrc-mode
 ;; Version: 0.3.1
+;; Keywords: languages, vim
 ;; Package-Requires: ()
-
-;; Copyright (C) 2011 Alpha Tan
-;;
-;; Author: Alpha Tan <alphatan.zh@gmail.com>
-;; Time-stamp: <2011-05-04 14:34:23>
-;; Keywords: vimrc .vim
-;; Homepage: vimrc-mode.sf.net
-
-;;; Version Control:
-;; $Rev::                                               $
-;; $Author::                                            $
-;; $Date::                                              $
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -34,11 +27,8 @@
 
 ;;; Commentary:
 
-;; Add the following to ~/.emacs:
-;;
-;;     (require 'vimrc-mode)
-;;     (add-to-list 'auto-mode-alist '(".vim\\(rc\\)?$" . vimrc-mode))
-;;
+;; The homepage for Alpha Tan's original vimrc mode is
+;; <http://vimrc-mode.sf.net>
 
 ;;; Code:
 
