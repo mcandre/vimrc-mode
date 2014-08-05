@@ -61,7 +61,7 @@
        (0 font-lock-string-face)) ;; String end;
 
      ;; Function-name start:
-     ("^[ \t]*\\(fun[ction]*[!]\\)[ \t]*\\([a-z:A-Z0-9_]+\\)?"
+     ("^[ \t]*\\(fun\\(?:ction\\)?\\)!?[ \t]+\\([a-zA-Z0-9_:#]+\\)?"
        (1 font-lock-keyword-face)
        (2 font-lock-function-name-face nil t)) ;; Function-name end;
      ("\\(\\([a-zA-Z]*:\\)?[a-zA-Z]*\\)("
