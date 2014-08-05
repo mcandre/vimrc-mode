@@ -86,8 +86,10 @@
        (1 font-lock-function-name-face nil t)) ;; Function-name end;
 
      ;; Variables
-     ("\\(\\([avglbs]:\\)\\|\\([&$]\\)\\)\\([a-zA-Z][a-zA-Z0-9_]*\\)"
+     ("\\<[bwglsav]:[a-zA-Z_][a-zA-Z0-9#_]*\\>"
        (0 font-lock-variable-name-face))
+     ("\\(let[ \t]+\\)\\<\\([a-zA-Z_][a-zA-Z0-9#_]*\\)\\>"
+       (2 font-lock-variable-name-face))
 
      ;; Options which can be prefixed with `no'
      (,(concat "[^_]\\<\\(\\(?:no\\)?"
