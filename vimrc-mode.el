@@ -49,6 +49,22 @@
   :type 'hook
   :group 'data)
 
+(defgroup vimrc-faces nil
+  "Faces used for Vim script."
+  :group 'faces)
+
+(defface vimrc-option
+  '((default :inherit font-lock-variable-name-face))
+  "Face used for Vim's configuration options.")
+
+(defface vimrc-function-builtin
+  '((default :inherit font-lock-builtin-face))
+  "Face used for Vim's built-in functions.")
+
+(defface vimrc-command
+  '((default :inherit font-lock-keyword-face))
+  "Face used for Vim Ex commands.")
+
 ;; Regexps
 (defvar vimrc-font-lock-keywords
   `(
@@ -63,17 +79,15 @@
 
      ;; Function-name start:
      ("^[ \t]*\\(fun\\(?:ction\\)?\\)!?[ \t]+\\([a-zA-Z0-9_:#]+\\)?"
-       (1 font-lock-keyword-face)
        (2 font-lock-function-name-face nil t)) ;; Function-name end;
      ("\\(\\([a-zA-Z]*:\\)?[a-zA-Z]*\\)("
        (1 font-lock-function-name-face nil t)) ;; Function-name end;
 
-     ;; Variables start:
+     ;; Variables
      ("\\(\\([avglbs]:\\)\\|\\([&$]\\)\\)\\([a-zA-Z][a-zA-Z0-9_]*\\)"
-       (0 font-lock-variable-name-face)
-       ) ;; Variables end;
+       (0 font-lock-variable-name-face))
 
-     ;; Variables which can be prefixed with `no'
+     ;; Options which can be prefixed with `no'
      (,(concat "[^_]\\<\\(\\(?:no\\)?"
                (regexp-opt '("autochdir" "acd"
                              "allowrevins" "ari"
@@ -197,9 +211,9 @@
                              "writebackup" "wb"
                              ) t)
                "\\)\\>[^_]" )
-      1 font-lock-variable-name-face)
+      1 '(face vimrc-option))
 
-     ;; The rest of the variables
+     ;; The rest of the options
      (,(concat "[^_]"
                (regexp-opt '("aleph" "al"
                              "ambiwidth" "ambw"
@@ -449,7 +463,7 @@
                              "writedelay" "wd"
                              ) 'words)
                "[^_]")
-      1 font-lock-variable-name-face)
+      1 '(face vimrc-option))
 
      ;; Ex commands
      (,(concat "\\(^\\|[^_]\\)"
@@ -897,7 +911,7 @@
                              "yank" "y"
                              ) 'words)
                "\\([^_]\\|$\\)")
-      2 font-lock-keyword-face)
+      2 '(face vimrc-command))
 
      ;; Built-in functions
      (,(concat "\\(^\\|[ \t]*\\)"
@@ -1151,7 +1165,7 @@
                              "abs"
                              ) 'words)
                "\\([ \t]*(\\)")
-      2 font-lock-builtin-face)
+      2 '(face vimrc-function-builtin))
 
      ;;
      ;; Operators start:
