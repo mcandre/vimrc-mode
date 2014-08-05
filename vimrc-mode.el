@@ -3,7 +3,8 @@
 ;; Copyright (C) 2013 Andrew Pennebaker
 ;; Copyright (C) 2011 Alpha Tan
 
-;; Authors: Andrew Pennebaker
+;; Authors: Mark Oteiza
+;;          Andrew Pennebaker
 ;;          Alpha Tan <alphatan.zh@gmail.com>
 ;; URL: https://github.com/mcandre/vimrc-mode
 ;; Version: 0.3.1
@@ -601,7 +602,7 @@
                              "folddoopen" "foldd"
                              "foldopen" "foldo"
                              "for" "endfo" "endfor"
-                             "fu" "function"
+                             "fu" "fun" "function"
                              "goto" "go"
                              "grep" "gr"
                              "grepadd" "grepa"
@@ -859,7 +860,6 @@
                              "topleft" "to"
                              "tprevious" "tp"
                              "trewind" "tr"
-                             "try"
                              "try" "endt" "endtry"
                              "tselect" "ts"
                              "tunmenu" "tu"
