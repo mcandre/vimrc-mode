@@ -65,7 +65,9 @@
   '((default :inherit font-lock-keyword-face))
   "Face used for Vim Ex commands.")
 
-;; Regexps
+
+;; Font lock linking
+
 (defvar vimrc-font-lock-keywords
   `(
      ;; Line comment
@@ -1189,6 +1191,9 @@
            1 font-lock-constant-face) ;; Operators end;
      )
  "Default expressions to highlight in Vimrc mode.")
+
+
+;; Support for Vim script
 
 ;;;###autoload (add-to-list 'auto-mode-alist '("\\.vim\\'" . vimrc-mode))
 ;;;###autoload (add-to-list 'auto-mode-alist '("[._]?g?vimrc\\'" . vimrc-mode))
