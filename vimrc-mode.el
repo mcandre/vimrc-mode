@@ -68,7 +68,7 @@
        (1 font-lock-function-name-face nil t)) ;; Function-name end;
 
      ;; Variables start:
-     ("\\(\\([avg]:\\)\\|\\([&$]\\)\\)\\([a-zA-Z][a-zA-Z0-9_]*\\)"
+     ("\\(\\([avglbs]:\\)\\|\\([&$]\\)\\)\\([a-zA-Z][a-zA-Z0-9_]*\\)"
        (0 font-lock-variable-name-face)
        ) ;; Variables end;
 
