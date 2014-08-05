@@ -52,10 +52,11 @@
 ;; Regexps
 (defvar vimrc-font-lock-keywords
   `(
-     ;; Comment start:
-     ("\\(^\\|[\t ]\\)\\(\".*\\)$"
-       (2 font-lock-comment-face)) ;; Comment end;
-
+     ;; Line comment
+     ("^[\t ]*\\(\"\\)\\(.*\\)$"
+       (1 font-lock-comment-delimiter-face)
+       (2 font-lock-comment-face))
+     
      ;; String start:
      ("\\(\"[^\n\r\"]*\"\\)\\|\\('[^\n\r]*'\\)"
        (0 font-lock-string-face)) ;; String end;
