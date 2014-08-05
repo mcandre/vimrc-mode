@@ -44,10 +44,15 @@
 
 (require 'font-lock)
 
+(defgroup vimrc-mode nil
+  "Major mode for editing Vim script."
+  :link '(url-link "https://github.com/mcandre/vimrc-mode")
+  :group 'languages)
+
 (defcustom vimrc-mode-hook nil
   "Normal hook run when entering vimrc-mode."
   :type 'hook
-  :group 'data)
+  :group 'vimrc-mode)
 
 (defgroup vimrc-faces nil
   "Faces used for Vim script."
@@ -1197,6 +1202,39 @@
 
 ;; Support for Vim script
 
+(defvar vimrc-imenu-generic-expression
+  '((nil "^\\(fun\\(?:ction\\)?\\)!?[[:blank:]]+\\([[:alnum:]_:#]+\\)?" 2)
+    (nil "^let[[:blank:]]+\\<\\([bwglsav]:[a-zA-Z_][[:alnum:]#_]*\\)\\>" 1)
+    (nil "^let[[:blank:]]+\\<\\([a-zA-Z_][[:alnum:]#_]*\\)\\>[^:]" 1))
+  "Value for `imenu-generic-expression' in Vimrc mode.
+
+Create an index of the function and variable definitions in a
+Vim file.")
+
+(defun vimrc-beginning-of-defun (&optional arg)
+  "Move backward to the beginning of the current function.
+
+With argument, repeat ARG times."
+  (interactive "p")
+  (re-search-backward (concat  "^[ \t]*\\(fun\\(?:ction\\)?\\)\\b")
+                      nil 'move (or arg 1)))
+
+(defun vimrc-end-of-defun (&optional arg)
+  "Move forward to the next end of a function.
+
+With argument, repeat ARG times."
+  (interactive "p")
+  (re-search-forward (concat  "^[ \t]*\\(endf\\(?:unction\\)?\\)\\b")
+                      nil 'move (or arg 1)))
+
+;;;###autoload
+(defvar vimrc-mode-syntax-table
+  (let ((table (make-syntax-table)))
+
+    (modify-syntax-entry ?\" ".")
+
+    table))
+
 ;;;###autoload (add-to-list 'auto-mode-alist '("\\.vim\\'" . vimrc-mode))
 ;;;###autoload (add-to-list 'auto-mode-alist '("[._]?g?vimrc\\'" . vimrc-mode))
 ;;;###autoload (add-to-list 'auto-mode-alist '("\\.exrc\\'" . vimrc-mode))
@@ -1207,11 +1245,15 @@
 ;;;###autoload
 (define-derived-mode vimrc-mode vimrc--parent-mode "Vimrc"
   "Major mode for editing `vimrc', `xxx.vim' and `.exrc' configuration files."
-  (setq font-lock-defaults '(vimrc-font-lock-keywords))
-  (set (make-local-variable 'comment-start) "\"")
-  (set (make-local-variable 'comment-end) "")
-  (modify-syntax-entry ?\" ".")
+  :group 'vimrc-mode
+  :syntax-table vimrc-mode-syntax-table
+  (setq-local font-lock-defaults '(vimrc-font-lock-keywords))
+  (setq-local comment-start "\"")
+  (setq-local comment-end "")
   ;(set (make-local-variable 'comment-start-skip) "\"\\* +")
+  (setq-local imenu-generic-expression vimrc-imenu-generic-expression)
+  (setq-local beginning-of-defun-function 'vimrc-beginning-of-defun)
+  (setq-local end-of-defun-function 'vimrc-end-of-defun)
   (run-hooks 'vimrc-mode-hook))
 
 (provide 'vimrc-mode)
