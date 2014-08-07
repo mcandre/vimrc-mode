@@ -1217,7 +1217,6 @@ With argument, repeat ARG times."
   (re-search-forward (concat  "^[ \t]*\\(endf\\(?:unction\\)?\\)\\b")
                       nil 'move (or arg 1)))
 
-;;;###autoload
 (defvar vimrc-mode-syntax-table
   (let ((table (make-syntax-table)))
     (modify-syntax-entry ?\" "." table)
