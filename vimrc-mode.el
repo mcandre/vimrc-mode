@@ -76,7 +76,12 @@
      ("^[\t ]*\\(\"\\)\\(.*\\)$"
        (1 font-lock-comment-delimiter-face)
        (2 font-lock-comment-face))
-     
+
+     ;; Trailing comment
+     ("[\t ]+\\(\"\\)\\([^\"\r\n]*\\)$"
+       (1 font-lock-comment-delimiter-face)
+       (2 font-lock-comment-face))
+
      ;; String start:
      ("\\(\"[^\n\r\"]*\"\\)\\|\\('[^\n\r]*'\\)"
        (0 font-lock-string-face)) ;; String end;
