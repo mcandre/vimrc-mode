@@ -61,6 +61,12 @@
   '((default :inherit font-lock-keyword-face))
   "Face used for Vim Ex commands.")
 
+(defface vimrc-number
+  '((((class color) (background light)) (:foreground "steel blue"))
+    (((class color) (background dark)) (:foreground "sky blue"))
+    (t nil))
+  "Face used for Vim's numbers.")
+
 
 ;; Font lock linking
 
@@ -1165,6 +1171,16 @@
                              ) 'words)
                "\\([ \t]*(\\)")
       2 '(face vimrc-function-builtin))
+
+     ;; Numbers
+     ("\\<0[xX][[:xdigit:]]+"
+      (0 '(face vimrc-number)))
+     ("#[[:xdigit:]]\\{6\\}"
+      (0 '(face vimrc-number)))
+     (,(concat
+        "\\(\\<\\|-\\)[[:digit:]]+"
+        "\\(\\.[[:digit:]]+\\([eE][+-]?[[:digit:]]+\\)?\\)?")
+      0 '(face vimrc-number))
 
      ;;
      ;; Operators start:
