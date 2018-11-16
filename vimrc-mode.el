@@ -1240,8 +1240,10 @@ With argument, repeat ARG times."
 
 (defvar vimrc-mode-syntax-table
   (let ((table (make-syntax-table)))
-    (modify-syntax-entry ?\" "." table)
-    (modify-syntax-entry ?# "_" table)
+    (modify-syntax-entry ?'  "\"" table)
+    (modify-syntax-entry ?\" "<"  table)
+    (modify-syntax-entry ?\n ">"  table)
+    (modify-syntax-entry ?#  "_"  table)
     table))
 
 ;;;###autoload (add-to-list 'auto-mode-alist '("\\.vim\\'" . vimrc-mode))
