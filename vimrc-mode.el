@@ -92,6 +92,10 @@
      ("\\(\\([a-zA-Z]*:\\)?[a-zA-Z]*\\)("
        (1 font-lock-function-name-face nil t)) ;; Function-name end;
 
+     ;; Function special arguments
+     ("\\(fun\\(?:ction\\)?\\)!?.+?\\(\\(range\\|abort\\|dict\\|closure\\)\\([ \t]+\\(range\\|abort\\|dict\\|closure\\)\\)*\\)[ \t]*$"
+       (2 '(face vimrc-command)))
+
      ;; Variables
      ("\\<[bwglsav]:[a-zA-Z_][a-zA-Z0-9#_]*\\>"
        (0 font-lock-variable-name-face))
