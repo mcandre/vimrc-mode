@@ -588,6 +588,7 @@
                              "dsplit" "dsp"
                              "earlier"
                              "echoerr" "echoe"
+                             "echohl" "echoh"
                              "echomsg" "echom"
                              "echon"
                              "edit" "e"
