@@ -9,7 +9,7 @@
 ;; URL: https://github.com/mcandre/vimrc-mode
 ;; Version: 0.3.1
 ;; Keywords: languages, vim
-;; Package-Requires: ()
+;; Package-Requires: ((emacs "24.3"))
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -41,7 +41,7 @@
   :group 'languages)
 
 (defcustom vimrc-mode-hook nil
-  "Normal hook run when entering vimrc-mode."
+  "Normal hook run when entering `vimrc-mode'."
   :type 'hook
   :group 'vimrc-mode)
 
@@ -219,8 +219,7 @@
                              "wrapscan" "ws"
                              "write"
                              "writeany" "wa"
-                             "writebackup" "wb"
-                             ) t)
+                             "writebackup" "wb") t)
                "\\)\\>[^_]" )
       1 '(face vimrc-option))
 
@@ -471,8 +470,7 @@
                              "winwidth" "wiw"
                              "wrapmargin" "wm"
                              "wrapscan" "ws"
-                             "writedelay" "wd"
-                             ) 'words)
+                             "writedelay" "wd") 'words)
                "[^_]")
       1 '(face vimrc-option))
 
@@ -918,8 +916,7 @@
                              "xme" "xmenu" "xnoreme" "xnoremenu"
                              "xn" "xnoremap"
                              "xu" "xunmap"
-                             "yank" "y"
-                             ) 'words)
+                             "yank" "y") 'words)
                "\\([^_]\\|$\\)")
       2 '(face vimrc-command))
 
@@ -1172,8 +1169,7 @@
                              "append"
                              "add"
                              "acos"
-                             "abs"
-                             ) 'words)
+                             "abs") 'words)
                "\\([ \t]*(\\)")
       2 '(face vimrc-function-builtin))
 
@@ -1196,7 +1192,7 @@
 
                        "\\|" "\\(![=~]?[#?]?\\)"
                        "\\|" "\\(>[#\\\\?=]?[#?]?\\)"
-                       "\\|" "\\(<[#\\\\?=]?[#?]?\\)" 
+                       "\\|" "\\(<[#\\\\?=]?[#?]?\\)"
                        "\\|" "\\(\\+=?\\)"
                        "\\|" "\\(-=?\\)"
                        "\\|" "\\(=[=~]?[#?]?\\)"
@@ -1204,8 +1200,7 @@
                        "\\|" "\\(&&\\)"
 
                        "\\|" "\\(\\.\\)"
-                   "\\)"
-                   )
+                   "\\)")
            1 font-lock-constant-face) ;; Operators end;
      )
  "Default expressions to highlight in Vimrc mode.")
