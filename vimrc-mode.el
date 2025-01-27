@@ -35,7 +35,7 @@
 
 (require 'font-lock)
 
-(defgroup vimrc-mode nil
+(defgroup vimrc nil
   "Major mode for editing Vim script."
   :link '(url-link "https://github.com/mcandre/vimrc-mode")
   :group 'languages)
