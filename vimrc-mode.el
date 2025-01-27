@@ -1,4 +1,4 @@
-;;; vimrc-mode.el --- Major mode for vimrc files
+;;; vimrc-mode.el --- Major mode for vimrc files  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2013 Andrew Pennebaker
 ;; Copyright (C) 2011 Alpha Tan
